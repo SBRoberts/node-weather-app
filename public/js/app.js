@@ -1,10 +1,8 @@
-console.log("Client Side JS is loaded");
 const getWeather = location => {
   return fetch(`http://localhost:3000/weather?location=${location}`).then(
     res => {
       return res.json().then(data => {
         if (data.error) {
-          console.log(data.error);
           return data;
         } else {
           return data;
