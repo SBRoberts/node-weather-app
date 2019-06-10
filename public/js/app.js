@@ -1,15 +1,13 @@
 const getWeather = location => {
-  return fetch(`http://localhost:3000/weather?location=${location}`).then(
-    res => {
-      return res.json().then(data => {
-        if (data.error) {
-          return data;
-        } else {
-          return data;
-        }
-      });
-    }
-  );
+  return fetch(`/weather?location=${location}`).then(res => {
+    return res.json().then(data => {
+      if (data.error) {
+        return data;
+      } else {
+        return data;
+      }
+    });
+  });
 };
 
 const weatherForm = document.getElementById("searchForm");

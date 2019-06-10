@@ -5,6 +5,7 @@ const geocode = require("./utils/geocode");
 const forecast = require("./utils/forecast");
 
 const app = express();
+const port = process.env.PORT || 3000;
 
 // Define Paths for Express Config
 const publicDirectoryPath = path.join(__dirname, "../public");
@@ -66,11 +67,6 @@ app.get("/weather", (req, res) => {
       const weatherString = `The weather in ${location} is ${temperature} degrees celcius with ${precipProbability}% chance of rain`;
 
       res.send({ geocodeData, forecastData });
-      // res.render("index", {
-      //   heading: "The Weather Today",
-      //   weather: weatherString,
-      //   name: "Spencer Roberts"
-      // });
     });
   });
 });
@@ -107,6 +103,6 @@ app.get("*", (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log("Server running on port 3000");
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });
